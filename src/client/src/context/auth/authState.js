@@ -43,7 +43,7 @@ const AuthState = props => {
         payload: res.data // this is the actual user data that we get from hitting the GET /api/auth endpoint
       })
   } catch (err) {
-    console.log(err.response)
+    // console.log(err.response)
     // console.log('Error:', err);
     dispatch({
         type: AUTH_ERROR
@@ -60,7 +60,7 @@ const AuthState = props => {
     }
 
     try {
-      const res = await request.post('/register', formData, config);
+      const res = await request.post('/api/register', formData, config);
 
       dispatch({
         type: REGISTER_SUCCESS,
@@ -89,7 +89,7 @@ const AuthState = props => {
     }
 
     try {
-      await request.post('/login', formData, config);
+      await request.post('/api/login', formData, config);
 
       dispatch({
         type: LOGIN_SUCCESS,
